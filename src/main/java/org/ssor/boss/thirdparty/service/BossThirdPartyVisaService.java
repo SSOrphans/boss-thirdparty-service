@@ -28,13 +28,13 @@ public class BossThirdPartyVisaService
       CertificateException,
       NoSuchAlgorithmException, UnrecoverableKeyException, KeyManagementException, IllegalArgumentException
   {
-    Currency fromCurrencyCode = Currency.getInstance(fromCurrency);
-    Currency toCurrencyCode = Currency.getInstance(toCurrency);
-    VisaForexPayload payload = new VisaForexPayload("A", toCurrencyCode.getNumericCodeAsString(), fromCurrencyCode.getNumericCodeAsString());
+    var fromCurrencyCode = Currency.getInstance(fromCurrency.toUpperCase());
+    var toCurrencyCode = Currency.getInstance(toCurrency.toUpperCase());
+    var payload = new VisaForexPayload("A", toCurrencyCode.getNumericCodeAsString(), fromCurrencyCode.getNumericCodeAsString());
     payload.setSourceAmount(amountToConvert.toString());
 
-    ObjectMapper payloadMapper = new ObjectMapper();
-    String jsonPayload = payloadMapper.writeValueAsString(payload);
+    var payloadMapper = new ObjectMapper();
+    var jsonPayload = payloadMapper.writeValueAsString(payload);
 
     ResponseEntity<String> response = requestFromVisaAPI.createRequest(jsonPayload, "foreignexchangerates");
 
@@ -43,7 +43,7 @@ public class BossThirdPartyVisaService
       throw new HttpResponseException(500, "Visa API call failed");
     }
 
-    ObjectMapper responseMapper = new ObjectMapper();
+    var responseMapper = new ObjectMapper();
     JsonNode responseJson = responseMapper.readTree(response.getBody());
     Double amount = Double.parseDouble(responseJson.get("destinationAmount").textValue());
     return new ForexDataTransfer(toCurrency, amount);

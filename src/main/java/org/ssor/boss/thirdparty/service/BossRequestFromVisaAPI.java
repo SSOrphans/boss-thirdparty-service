@@ -40,8 +40,8 @@ public class BossRequestFromVisaAPI
       KeyStoreException,
       IOException, CertificateException, UnrecoverableKeyException, KeyManagementException
   {
-    KeyStore ks = KeyStore.getInstance("PKCS12");
-    try (FileInputStream fis = new FileInputStream(keystorePath))
+    var ks = KeyStore.getInstance("PKCS12");
+    try (var fis = new FileInputStream(keystorePath))
     {
       ks.load(fis, keystorePassword.toCharArray());
     }
@@ -70,13 +70,13 @@ public class BossRequestFromVisaAPI
     ClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(
         client);
 
-    HttpHeaders headers = new HttpHeaders();
+    var headers = new HttpHeaders();
     headers.setContentType(MediaType.APPLICATION_JSON);
     headers.set("Authorization", authHeaderValue);
 
     HttpEntity<String> entity = new HttpEntity<>(jsonPayload, headers);
 
-    RestTemplate template = new RestTemplate(requestFactory);
+    var template = new RestTemplate(requestFactory);
 
     return template.postForEntity(urlString + uri, entity, String.class);
   }
