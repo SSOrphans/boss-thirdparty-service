@@ -34,3 +34,4 @@ build/
 
 ## Macbook ##
 .DS_Store
+/secret/
