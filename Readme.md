@@ -10,3 +10,7 @@ Inside the folder containing both pem files, run this command in the terminal.
 Once the file has been generated, export the path of this newly generated keystore, and the password you gave it into the environment and name it `VISA_KEYSTORE_FILE` and `VISA_KEYSTORE_PASSWORD`.
 
 Inside the same credentials page, copy the User ID and the password and export the values into the environment as `VISA_USER_ID` and `VISA_USER_PASSWORD` respectively.
+
+---
+
+In case you have lost your private key, in the credentials page you can generate a new key at the bottom of the page. Once you have downloaded your private key, your public key will be listed under that entry as Client Encryption Certificate.

@@ -38,9 +38,9 @@ public class BossThirdPartyVisaController
       IOException,
       KeyStoreException,
       NoSuchAlgorithmException,
-      KeyManagementException
+      KeyManagementException,
+      IllegalArgumentException
   {
-    System.out.println( bossThirdPartyVisaService.getForex());
-    return new ForexDataTransfer("USD", 50D);
+    return bossThirdPartyVisaService.getForex(fromCurrency, toCurrency, amount);
   }
 }
