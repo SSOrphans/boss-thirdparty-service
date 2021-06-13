@@ -1,3 +1,5 @@
+VISA API Certificate Setup
+
 To get the proper secret files required for this service to work, visit the [visa developer center](https://developer.visa.com/) and sign in.
 In the dashboard, select the Bank of Smoothstack project. On the left side of the menus, go into the credentials page and download the certificate pem file.
 

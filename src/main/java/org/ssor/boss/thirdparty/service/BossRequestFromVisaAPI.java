@@ -31,11 +31,11 @@ public class BossRequestFromVisaAPI
   @Value("${VISA_KEYSTORE_PASSWORD}")
   String keystorePassword; //"visaks"
   @Value("${VISA_USER_ID}")
-  String userId;// = "XS6XHPQSVM9KO8D0599Y21pL3o-7qXzpQeBqlMkJ5uRBAeZ8I"
+  String userId;
   @Value("${VISA_USER_PASSWORD}")
-  String password;// = "8Ikiy1yMABfN6NL90iNjw6b2mSIbswIC7B"
+  String password;
 
-  private SSLConnectionSocketFactory setTransportLayer() throws
+  public SSLConnectionSocketFactory setTransportLayer() throws
       NoSuchAlgorithmException,
       KeyStoreException,
       IOException, CertificateException, UnrecoverableKeyException, KeyManagementException
