@@ -49,7 +49,7 @@ class BossRequestFromVisaServiceTest
         "    \"rateProductCode\": \"A\"\n" +
         "}");
     Mockito.doReturn(stubbedResponse).when(requestFromVisaAPI).createRequest(Mockito.anyString(), Mockito.anyString());
-    var expected = new ForexDataTransfer("USD", 0.77D);
+    var expected = new ForexDataTransfer("USD", 0.77D, .3D);
     var actual = service.getForex("EUR", "USD", 50D);
     assertEquals(expected, actual);
   }

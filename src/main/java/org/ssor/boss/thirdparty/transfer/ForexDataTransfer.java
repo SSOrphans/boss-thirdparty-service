@@ -9,4 +9,5 @@ public class ForexDataTransfer
 {
   private final String currency;
   private final Double amount;
+  private final Double rate;
 }

@@ -39,7 +39,7 @@ class BossThirdPartyVisaControllerTest
       NoSuchAlgorithmException,
       KeyManagementException
   {
-    var transfer = new ForexDataTransfer("USD", 50D);
+    var transfer = new ForexDataTransfer("USD", 50D, .3D);
     Mockito.doReturn(transfer).when(thirdPartyVisaService)
            .getForex(Mockito.anyString(), Mockito.anyString(), Mockito.anyDouble());
 

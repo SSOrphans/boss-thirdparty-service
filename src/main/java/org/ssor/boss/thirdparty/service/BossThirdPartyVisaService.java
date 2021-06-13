@@ -46,6 +46,7 @@ public class BossThirdPartyVisaService
     var responseMapper = new ObjectMapper();
     JsonNode responseJson = responseMapper.readTree(response.getBody());
     Double amount = Double.parseDouble(responseJson.get("destinationAmount").textValue());
-    return new ForexDataTransfer(toCurrency, amount);
+    Double rate = Double.parseDouble(responseJson.get("conversionRate").textValue());
+    return new ForexDataTransfer(toCurrency, amount, rate);
   }
 }
